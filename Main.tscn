@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqyvpsohxrmh3"]
+
+[ext_resource type="Script" uid="uid://c5plwxfc2g551" path="res://Main.gd" id="1_glv2v"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_glv2v")
+
+[node name="TopBar" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Location" type="Label" parent="TopBar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Time" type="Label" parent="TopBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RetroViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RetroViewport" type="SubViewport" parent="RetroViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
+
+[node name="GameDisplay" type="Node2D" parent="RetroViewportContainer/RetroViewport"]
+
+[node name="BottomUI" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RichTextLabel_Log" type="RichTextLabel" parent="BottomUI"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomUI"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="BottomUI/HBoxContainer"]
+layout_mode = 2
+
+[node name="Button2" type="Button" parent="BottomUI/HBoxContainer"]
+layout_mode = 2
