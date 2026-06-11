@@ -570,12 +570,7 @@ Common mistake: Using = when you mean ==""",
             questions=[
                 Question(
                     id="cf1",
-                    text="What will this code print?
-x = 5
-if x > 10:
-    print("Big")
-else:
-    print("Small")",
+                    text='What will this code print?\nx = 5\nif x > 10:\n    print("Big")\nelse:\n    print("Small")',
                     question_type=QuestionType.MULTIPLE_CHOICE,
                     options=[
                         "Big",
@@ -585,7 +580,7 @@ else:
                     ],
                     correct_answer="B",
                     hint="Is 5 greater than 10?",
-                    explanation="5 is NOT greater than 10, so the first condition is False. The else block runs, printing 'Small'."
+                    explanation='5 is NOT greater than 10, so the first condition is False. The else block runs, printing "Small".'
                 ),
                 Question(
                     id="cf2",
