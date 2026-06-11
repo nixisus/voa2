@@ -5,11 +5,31 @@ This module handles user registration and authentication using hashed passphrase
 It serves an educational purpose: demonstrating WHY we hash passwords rather than
 storing them in plain text.
 
-Key Security Concepts Taught:
-1. Plain text passwords are dangerous - if someone accesses the file, they have ALL passwords
-2. Hashing is one-way - you can verify a password but can't reverse it
-3. Salting prevents rainbow table attacks (pre-computed hash lookup tables)
-4. Even if someone gets the hash, they can't easily determine the original passphrase
+Security Concepts Taught:
+    1. Plain text passwords are dangerous - if someone accesses the file,
+       they have ALL passwords
+    2. Hashing is one-way - you can verify a password but can't reverse it
+    3. Salting prevents rainbow table attacks (pre-computed hash lookup tables)
+    4. Even if someone gets the hash, they can't easily determine the original passphrase
+
+Storage Location:
+    User profiles are stored in ~/.pylearn/profile.json with restricted
+    permissions (600) to prevent other users on shared servers from accessing data.
+
+Example:
+    >>> from pylearn.auth import UserProfile, profile_exists
+    >>> # Check if user exists
+    >>> if profile_exists():
+    ...     profile = UserProfile.load()
+    ... else:
+    ...     profile = UserProfile.create_profile("Alice", "mypassword123")
+    >>> # Authenticate
+    >>> profile.authenticate("mypassword123")
+    True
+
+Warning:
+    This implementation uses SHA-256 for educational purposes.
+    Production systems should use bcrypt, scrypt, or argon2.
 """
 
 import hashlib

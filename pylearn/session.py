@@ -5,10 +5,28 @@ This module handles tracking student progress through lessons and storing
 their answers to exercises. It manages session state persistence across
 multiple app invocations.
 
-Key Concepts:
-1. Session state - remembering where you are in the curriculum
-2. Answer recording - tracking student responses for review
-3. Progress calculation - showing how far they've come
+Storage:
+    - ~/.pylearn/progress.json - Current lesson and completed lessons
+    - ~/.pylearn/answers.json - All recorded answers to questions
+
+Features:
+    - Session persistence across app restarts
+    - Answer recording for each question
+    - Progress calculation (percentage complete)
+    - Lesson navigation and advancement
+
+Example:
+    >>> from pylearn.session import get_session_manager
+    >>> session = get_session_manager()
+    >>> session.start_session("Alice")
+    >>> session.advance_lesson("variables")
+    >>> session.record_answer("variables", "v1", "B", True)
+    >>> progress = session.get_progress(total_lessons=10)
+    >>> print(f"Progress: {progress * 100:.0f}%")
+
+Note:
+    The SessionManager is a singleton-like pattern using a global instance
+    to ensure consistent state across the application.
 """
 
 import json

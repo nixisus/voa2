@@ -5,10 +5,30 @@ This module provides beautiful, accessible terminal output using the Rich librar
 It creates a consistent visual language for the learning application.
 
 Design Principles:
-1. Clear hierarchy - headers, body text, and code are visually distinct
-2. Accessibility - high contrast colors, readable fonts
-3. Encouragement - positive messaging, gentle corrections
-4. Engagement - progress bars, visual feedback
+    1. Clear hierarchy - headers, body text, and code are visually distinct
+    2. Accessibility - high contrast colors, readable fonts
+    3. Encouragement - positive messaging, gentle corrections
+    4. Engagement - progress bars, visual feedback
+
+Features:
+    - Styled headers and panels
+    - Syntax-highlighted code blocks
+    - Progress indicators
+    - Question and answer formatting
+    - Encouraging feedback messages
+    - User input handling
+
+Example:
+    >>> from pylearn.ui import TerminalUI
+    >>> ui = TerminalUI()
+    >>> ui.print_header("Welcome to PyLearn")
+    >>> ui.print_code("print('Hello, World!')", language="python")
+    >>> ui.print_question("What does print() do?", ["Displays output", "Takes input"])
+    >>> answer = ui.get_input("Your answer: ")
+
+Dependencies:
+    Requires the 'rich' library for terminal formatting.
+    Install with: pip install rich>=13.0.0
 """
 
 from typing import List, Optional

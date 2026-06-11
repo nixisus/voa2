@@ -6,10 +6,42 @@ students through the curriculum. It provides an encouraging, patient teaching
 personality that adapts to student responses.
 
 Design Philosophy:
-1. Encouraging - celebrate successes, frame mistakes as learning
-2. Patient - allow retries, provide hints when stuck
-3. Conversational - use friendly language, personalize interactions
-4. Structured - follow the curriculum while allowing some flexibility
+    1. Encouraging - celebrate successes, frame mistakes as learning
+    2. Patient - allow retries, provide hints when stuck
+    3. Conversational - use friendly language, personalize interactions
+    4. Structured - follow the curriculum while allowing some flexibility
+
+How It Works:
+    The Tutor orchestrates the learning experience by:
+    1. Checking for existing user profile
+    2. Creating new profiles with educational passphrase hashing
+    3. Loading saved progress for returning users
+    4. Walking through each lesson with content and questions
+    5. Evaluating answers and providing feedback
+    6. Tracking progress and saving state
+
+User Flow:
+    New User:
+        - Welcome screen
+        - Enter name
+        - Create passphrase (hashed for educational purposes)
+        - Begin first lesson
+
+    Returning User:
+        - Welcome back message
+        - Educational overview of stored hash
+        - Resume from saved progress
+
+Example:
+    >>> from pylearn.tutor import Tutor
+    >>> from pylearn.ui import TerminalUI
+    >>> ui = TerminalUI()
+    >>> tutor = Tutor(ui)
+    >>> tutor.run()  # Starts interactive session
+
+Note:
+    The tutor uses a conversational, encouraging tone throughout.
+    It's designed to feel like chatting with a friendly AI assistant.
 """
 
 from typing import Optional, List

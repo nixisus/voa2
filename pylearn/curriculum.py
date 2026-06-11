@@ -5,9 +5,35 @@ This module defines the structured lesson content for the PyLearn curriculum.
 It uses dataclasses to create a type-safe, extensible lesson structure.
 
 Curriculum Structure:
-- Each lesson has an ID, title, content, questions, and a next lesson ID
-- Questions can be multiple choice, free text, or code evaluation
-- The curriculum is designed to be extended by future developers
+    - Each lesson has an ID, title, content, questions, and a next lesson ID
+    - Questions can be multiple choice, free text, or code evaluation
+    - The curriculum is designed to be extended by future developers
+
+Lesson Flow:
+    welcome -> what_is_programming -> pseudocode -> hello_world ->
+    variables -> data_types -> operators -> control_flow -> loops ->
+    functions -> mini_project
+
+Extending the Curriculum:
+    To add new lessons, create a new Lesson object with:
+    1. Unique ID
+    2. Title
+    3. Content (can include code examples)
+    4. Questions list
+    5. next_lesson_id (or None for last lesson)
+
+Example:
+    >>> from pylearn.curriculum import get_curriculum
+    >>> curriculum = get_curriculum()
+    >>> lesson = curriculum.get_lesson("variables")
+    >>> print(lesson.title)
+    'Variables: Storing Information'
+    >>> print(f"Questions: {len(lesson.questions)}")
+    'Questions: 2'
+
+Note:
+    The curriculum uses a global singleton pattern via get_curriculum()
+    to ensure the same curriculum instance is used throughout the app.
 """
 
 from dataclasses import dataclass, field
