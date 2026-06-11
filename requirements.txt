@@ -1,0 +1,5 @@
+# PyLearn - Python Interactive Learning Application
+# Dependencies for terminal-based Python learning app
+
+# Rich library for beautiful terminal output with colors, panels, and tables
+rich>=13.0.0
