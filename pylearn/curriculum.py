@@ -637,9 +637,7 @@ for price in prices:
             questions=[
                 Question(
                     id="lp1",
-                    text="How many times will this loop run?
-for i in range(1, 4):
-    print(i)",
+                    text='How many times will this loop run?\nfor i in range(1, 4):\n    print(i)',
                     question_type=QuestionType.MULTIPLE_CHOICE,
                     options=[
                         "2",
