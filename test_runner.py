@@ -85,7 +85,7 @@ def test_curriculum_structure():
     # Check lesson count
     count = curriculum.get_lesson_count()
     print(f"Total lessons: {count}")
-    assert count == 10, f"Expected 10 lessons, got {count}"
+    assert count == 11, f"Expected 11 lessons, got {count}"
     
     # Check all lessons have required fields
     for lesson in curriculum.get_all_lessons():
@@ -123,7 +123,7 @@ def test_lesson_navigation():
         current = curriculum.get_next_lesson(current.id)
     
     print(f"Total lessons navigated: {lesson_count}")
-    assert lesson_count == 10, f"Expected 10 lessons, navigated {lesson_count}"
+    assert lesson_count == 11, f"Expected 11 lessons, navigated {lesson_count}"
     
     print("✓ Lesson navigation works correctly")
     return True
